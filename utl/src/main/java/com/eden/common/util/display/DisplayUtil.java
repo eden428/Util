@@ -7,7 +7,7 @@ import android.view.WindowManager;
 import com.eden.common.util.ContextProvider;
 
 /**
- * Created by Administrator on 2016/4/3.
+ * Created by eden on 2016/4/3.
  */
 public class DisplayUtil {
 
@@ -38,7 +38,8 @@ public class DisplayUtil {
         return dm.widthPixels;
     }
 
-    public static int getScreenHight() {
+    //包含状态栏
+    public static int getScreenHeight() {
         WindowManager wm = (WindowManager) ContextProvider.getInstance().getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(dm);

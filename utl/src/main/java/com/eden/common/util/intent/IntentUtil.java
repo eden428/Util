@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+import com.eden.common.util.ContextProvider;
+
 import java.io.File;
 
 /**
@@ -60,5 +62,15 @@ public class IntentUtil {
         } catch (Exception e) {
         }
 
+    }
+
+    /**
+     * 通知媒体库更新单个文件状态
+     *
+     * @param file
+     */
+    public static void notifySystemUpdate(File file) {
+        Uri fileUri = Uri.fromFile(file);
+        ContextProvider.getInstance().getContext().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, fileUri));
     }
 }

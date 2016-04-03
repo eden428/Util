@@ -1,5 +1,6 @@
 package com.eden.common.util.view;
 
+import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.support.v4.view.ViewCompat;
 import android.text.Selection;
@@ -82,5 +83,15 @@ public class ViewUtil {
             Spannable spanText = (Spannable) charSequence;
             Selection.setSelection(spanText, charSequence.length());
         }
+    }
+
+    public Bitmap getViewBitmap(View view) {
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap bmp = view.getDrawingCache();
+        Bitmap bp = null;
+        bp = Bitmap.createBitmap(bmp, 0, 0, view.getWidth(), view.getHeight());
+        view.destroyDrawingCache();
+        return bp;
     }
 }

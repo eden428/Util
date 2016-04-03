@@ -30,4 +30,13 @@ public class KeyBoardUtil {
         InputMethodManager imm = (InputMethodManager) ContextProvider.getInstance().getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(mEditText.getWindowToken(), 0);
     }
+
+    /**
+     * 打卡软键盘
+     */
+    public static void openKeybord(EditText mEditText) {
+        InputMethodManager imm = (InputMethodManager) ContextProvider.getInstance().getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(mEditText, InputMethodManager.RESULT_SHOWN);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+    }
 }
