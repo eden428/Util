@@ -1,0 +1,64 @@
+jpinyin-1.0.jar
+//////////////////////////
+	一、jar包介绍
+	JPinyin是一个汉字转拼音的Java开源类库，在PinYin4j的功能基础上做了一些改进。
+
+	【JPinyin主要特性】
+	1、准确、完善的字库；
+	Unicode编码从4E00-9FA5范围及3007（〇）的20903个汉字中，JPinyin能转换除46个异体字（异体字不存在标准拼音）之外的所有汉字；
+	2、拼音转换速度快；
+	经测试，转换Unicode编码从4E00-9FA5范围的20902个汉字，JPinyin耗时约100毫秒。
+	3、多拼音格式输出支持；
+	JPinyin支持多种拼音输出格式：带音标、不带音标、数字表示音标以及拼音首字母输出格式；
+	4、常见多音字识别；
+	JPinyin支持常见多音字的识别，其中包括词组、成语、地名等；
+	5、简繁体中文转换
+
+	二、核心方法说明：
+	/**
+     * 将单个汉字转换为相应格式的拼音
+     * @param c 需要转换成拼音的汉字
+     * @param pinyinFormat 拼音格式：WITH_TONE_NUMBER--数字代表声调，WITHOUT_TONE--不带声调，WITH_TONE_MARK--带声调
+     * @return 汉字的拼音
+     */
+    public static String[] convertToPinyinArray(char c, PinyinFormat pinyinFormat)
+
+    /**
+     * 将单个汉字转换成带声调格式的拼音
+     * @param c 需要转换成拼音的汉字
+     * @return 字符串的拼音
+     */
+    public static String[] convertToPinyinArray(char c)
+
+    /**
+     * 将字符串转换成相应格式的拼音
+     * @param str 需要转换的字符串
+     * @param separator 拼音分隔符
+     * @param pinyinFormat 拼音格式：WITH_TONE_NUMBER--数字代表声调，WITHOUT_TONE--不带声调，WITH_TONE_MARK--带声调
+     * @return 字符串的拼音
+     */
+    public static String convertToPinyinString(String str, String separator, PinyinFormat pinyinFormat)
+
+    /**
+     * 将字符串转换成带声调格式的拼音
+     * @param str 需要转换的字符串
+     * @param separator 拼音分隔符
+     * @return 转换后带声调的拼音
+     */
+    public static String convertToPinyinString(String str, String separator)
+
+    /**
+     * 判断一个汉字是否为多音字
+     * @param c 汉字
+     * @return 判断结果，是汉字返回true，否则返回false
+     */
+    public static boolean hasMultiPinyin(char c)
+
+    /**
+     * 获取字符串对应拼音的首字母
+     * @param str 需要转换的字符串
+     * @return 对应拼音的首字母
+     */
+    public static String getShortPinyin(String str)
+
+
