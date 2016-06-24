@@ -5,11 +5,13 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
 
@@ -124,4 +126,25 @@ public class CommonUtil {
         view.destroyDrawingCache();
         return bp;
     }
+
+    /**
+     * 获取meta_data数据
+     * @param context
+     * @param key
+     * @return
+     */
+    public static String getManifestString(Context context, String key) {
+        return getBundle(context).getString(key);
+    }
+
+    private static Bundle getBundle(Context context) {
+        Bundle bundle;
+        try {
+            bundle = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA).metaData;
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return bundle;
+    }
+
 }

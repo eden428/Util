@@ -85,7 +85,7 @@ public class ViewUtil {
         }
     }
 
-    public Bitmap getViewBitmap(View view) {
+    public static Bitmap getViewBitmap(View view) {
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap bmp = view.getDrawingCache();
